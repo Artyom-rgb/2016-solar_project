@@ -21,7 +21,7 @@ def calculate_force(body, space_objects):
         r = ((body.x - obj.x)**2 + (body.y - obj.y)**2)**0.5
         if body.x != obj.x:
             body.Fx += gravitational_constant * body.m * obj.m / (body.x - obj.x) ** 2 # fixed (FIXME: нужно вывести формулу...)
-        if body.x != obj.x:
+        if body.y != obj.y:
             body.Fy += gravitational_constant * body.m * obj.m / (body.y - obj.y) ** 2 # fixed (FIXME: нужно вывести формулу...)
 
 
