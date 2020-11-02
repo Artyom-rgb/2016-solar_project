@@ -1,5 +1,5 @@
 # coding: utf-8
-# license: GPLv3
+`# license: GPLv3
 
 """Модуль визуализации.
 Нигде, кроме этого модуля, не используются экранные координаты объектов.
@@ -35,7 +35,7 @@ def scale_x(x):
     координату, лежащую за пределами холста.
 
     Параметры:
-
+u
     **x** — x-координата модели.
     """
 
@@ -49,12 +49,14 @@ def scale_y(y):
     координату, лежащую за пределами холста.
     Направление оси развёрнуто, чтобы у модели ось **y** смотрела вверх.
 
+
     Параметры:
 
     **y** — y-координата модели.
     """
-
-    return y  # FIXME: not done yet
+"""Высота окна"""
+    
+    return    return int(y*scale_factor) + window_height//2# FIXME: not done yet
 
 
 def create_star_image(space, star):
@@ -80,7 +82,11 @@ def create_planet_image(space, planet):
     **space** — холст для рисования.
     **planet** — объект планеты.
     """
-    pass  # FIXME: сделать как у звезды
+    x = scale_x(planet.x)
+    y = scale_y(planet.y)
+    r = planet.R
+    planet.image = space.create_oval([x - r, y - r], [x + r, y + r], fill = planet.color)
+    pass  # FIXME: сделать как у звезды   done
 
 
 def update_system_name(space, system_name):
